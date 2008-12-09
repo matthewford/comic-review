@@ -1,4 +1,4 @@
-  ---
+---
 # This is a sample database file for the DataMapper ORM
 development: &defaults
   # These are the settings for repository :default
