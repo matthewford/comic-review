@@ -3,12 +3,11 @@
 # depending on your installation of mysql you may need to 
 # specify a username, password, host, or socket
 development: &defaults
-  adapter:  mysql
+  adapter: mysql
   database: comic_development
-  # username: 
-  # password:
-  # host:
-  # socket:
+  username: root
+  host: localhost
+  socket: /opt/local/var/run/mysql5/mysqld.sock
  
 test:
   <<:       *defaults
