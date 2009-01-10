@@ -9,7 +9,18 @@
     <!--[if IE]><link rel="stylesheet" href="/stylesheets/ie.css" type="text/css" media="screen, projection"><![endif]-->
   </head>
   <body>
-    <%= message[:notice] %>
+    <% unless message[:success].blank? %>
+      <p class="success"><%= message[:success] %></p>
+    <% end %>
+    
+    <% unless  message[:notice].blank?  %>
+      <p class="notice"><%= message[:notice] %></p>
+    <% end %>
+    
+    <% unless  message[:error].blank?  %>
+      <p class="error"><%= message[:error] %></p>
+    <% end %>
+    
     <%= catch_content :for_layout %>
   </body>
 </html>
