@@ -6,7 +6,7 @@ Feature: Login
   Scenario Outline: Failed Login
     Given I am not authenticated
     When I go to /login
-    And I fill in "login" with "<mail>"
+    And I fill in "email" with "<mail>"
     And I fill in "password" with "<password>"
     And I press "Log In"
     Then the login request should fail
