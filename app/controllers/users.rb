@@ -6,8 +6,8 @@ class Users < Application
     display @users
   end
 
-  def show(id)
-    @user = User.get(id)
+  def show(username)
+    @user = User.first(:username => username)
     raise NotFound unless @user
     display @user
   end
@@ -18,9 +18,9 @@ class Users < Application
     display @user
   end
 
-  def edit(id)
+  def edit(username)
     only_provides :html
-    @user = User.get(id)
+    @user = User.first(:username => username)
     raise NotFound unless @user
     display @user
   end
@@ -35,8 +35,8 @@ class Users < Application
     end
   end
 
-  def update(id, user)
-    @user = User.get(id)
+  def update(username, user)
+    @user = User.first(:username => username)
     raise NotFound unless @user
     if @user.update_attributes(user)
        redirect resource(@user)
@@ -45,8 +45,8 @@ class Users < Application
     end
   end
 
-  def destroy(id)
-    @user = User.get(id)
+  def destroy(username)
+    @user = User.first(:username => username)
     raise NotFound unless @user
     if @user.destroy
       redirect resource(:users)

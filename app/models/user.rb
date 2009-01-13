@@ -10,9 +10,10 @@
 # You will need to setup your database and create a user.
 class User
   include DataMapper::Resource
-  
+
   property :id,     Serial
 	property :username,  String
 	property :email,  String
+	property :description, Text
 
 end
