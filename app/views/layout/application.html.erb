@@ -11,7 +11,7 @@
   <body>
     <div class="container">
       <div id="header" class="span-24 last">
-        <h1 id="comic_review">Comic Review</h1>
+        <h1 id="comic_review"><%= link_to "Comic Review", url(:homepage) %></h1>
       </div>
       <hr />
       <div id="subheader" class="span-24 last">
@@ -36,6 +36,8 @@
         <div class="box">
           <% if session.user %>  
             <h3>Hi <%= session.user.username %>!</h3>
+            <p><%= link_to "View Profile", resource(session.user) %></p>
+            <p><%= link_to "Edit Profile", resource(session.user, :edit) %></p>
             <p><%= link_to "Logout", url(:logout) %></p>
           <% else %>
             <p><%= link_to "Login", url(:login) %></p>
