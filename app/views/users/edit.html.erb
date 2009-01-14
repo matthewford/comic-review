@@ -6,3 +6,7 @@
 </fieldset>
 <% end =%>
 
+<h3>Delete your profile</h3>
+<%= form_for @user, :action => resource(@user), :method => :delete do %>
+  <%= submit "Delete Profile" %>
+<% end =%>

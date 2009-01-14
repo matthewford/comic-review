@@ -49,7 +49,7 @@ class Users < Application
     @user = User.first(:username => username)
     raise NotFound unless @user
     if @user.destroy
-      redirect resource(:users)
+      redirect url(:homepage), :message => {:notice => "Sorry to see you go..."}    
     else
       raise InternalServerError
     end

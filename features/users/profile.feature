@@ -22,4 +22,5 @@ Feature: users/profile
 		When I go to /users/matt/edit
 		Then I should see "Edit Profile"
 		And I press "Delete Profile"
-		Then I should see "Sorry to see you go...  :("
+    Then I should see "Welcome to ComicReview"
+		And I should see "Sorry to see you go..."
