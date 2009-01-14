@@ -1,7 +1,7 @@
 <%= form_for @user, :action => resource(@user) do %>
 <fieldset>
   <legend>Edit Profile</legend>
-  <%= text_field :description, :label => "Description" %>
+  <p><%= text_field :description, :label => "Description" %></p>
   <%= submit 'Update' %>
 </fieldset>
 <% end =%>

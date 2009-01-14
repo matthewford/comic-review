@@ -10,7 +10,7 @@ Feature: users/signup
     And I fill in "Password" with "<password>"
     And I fill in "Password Confirmation" with "<password>"
     And I press "Sign Up"
-    Then I should see "Welcome to ComicReview"
+    Then I should see "Welcome!"
     And I should see a success message
     
     Examples:

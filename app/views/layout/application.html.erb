@@ -9,18 +9,39 @@
     <!--[if IE]><link rel="stylesheet" href="/stylesheets/ie.css" type="text/css" media="screen, projection"><![endif]-->
   </head>
   <body>
-    <% unless message[:success].blank? %>
-      <p class="success"><%= message[:success] %></p>
-    <% end %>
-    
-    <% unless  message[:notice].blank?  %>
-      <p class="notice"><%= message[:notice] %></p>
-    <% end %>
-    
-    <% unless  message[:error].blank?  %>
-      <p class="error"><%= message[:error] %></p>
-    <% end %>
-    
-    <%= catch_content :for_layout %>
+    <div class="container">
+      <div id="header" class="span-24 last">
+        <h1 id="comic_review">Comic Review</h1>
+      </div>
+      <hr />
+      <div id="subheader" class="span-24 last">
+         <% unless message[:success].blank? %>
+           <p class="success"><%= message[:success] %></p>
+         <% end %>
+
+         <% unless  message[:notice].blank?  %>
+           <p class="notice"><%= message[:notice] %></p>
+         <% end %>
+
+         <% unless  message[:error].blank?  %>
+           <p class="error"><%= message[:error] %></p>
+         <% end %>
+      </div>
+      <hr />
+      <div class="span-17 colborder" id="content"> 
+      <%= catch_content :for_layout %>
+      </div>  
+      
+      <div class="span-6 last" id="sidebar">  
+        <div class="box">
+          <% if session.user %>  
+            <h3>Hi <%= session.user.username %>!</h3>
+            <p><%= link_to "Logout", url(:logout) %></p>
+          <% else %>
+            <p><%= link_to "Login", url(:login) %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
