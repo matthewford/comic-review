@@ -1,4 +1,8 @@
-<h1>Users controller, edit action</h1>
+<%= form_for @user, :action => resource(@user) do %>
+<fieldset>
+  <legend>Edit Profile</legend>
+  <%= text_field :description, :label => "Description" %>
+  <%= submit 'Update' %>
+</fieldset>
+<% end =%>
 
-<p>Edit this file in <tt>app/views/users/edit.html.erb</tt></p>
-<p>For more information and examples of CRUD views read <a href="http://wiki.merbivore.com/howto/crud_view_example_with_merb_using_erb"> this wiki page</a>
