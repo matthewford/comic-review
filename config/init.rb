@@ -5,7 +5,7 @@ require 'config/dependencies.rb'
 use_orm :datamapper
 use_test :rspec
 use_template_engine :erb
- 
+
 Merb::Config.use do |c|
   c[:use_mutex] = false
   c[:session_store] = 'cookie'  # can also be 'memory', 'memcache', 'container', 'datamapper
@@ -17,6 +17,7 @@ end
  
 Merb::BootLoader.before_app_loads do
   # This will get executed after dependencies have been loaded but before your app's classes have loaded.
+  require "gravatar"
 end
  
 Merb::BootLoader.after_app_loads do
