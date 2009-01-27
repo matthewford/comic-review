@@ -1,3 +1,7 @@
+require "nokogiri"
+require "httparty"
+require "open-uri"
+
 module Wikipedia
   class Page
     include HTTParty
@@ -38,7 +42,8 @@ module Wikipedia
     # @param [String] page the page we want to fetch
     # @return [Nokogiri::HTML::Document] the HTML of the page
     def fetch_doc(page)
-      Nokogiri::HTML(open("http://en.wikipedia.org/wiki/#{URI.escape(page)}"))
+      url = "http://en.wikipedia.org/wiki/#{URI.escape page}"
+      Nokogiri::HTML(open(url))
     end
   end
 end

@@ -1,4 +1,14 @@
-<h1>Comics controller, edit action</h1>
-
-<p>Edit this file in <tt>app/views/comics/edit.html.erb</tt></p>
-<p>For more information and examples of CRUD views read <a href="http://wiki.merbivore.com/howto/crud_view_example_with_merb_using_erb"> this wiki page</a>
+<%= form_for @comic, :action => resource(@comic) do %>
+<fieldset>
+  <legend>Edit Comic Profile</legend>
+<p>
+  <%= text_field :title, :label => "Title" %>
+</p>
+<p>
+  <%= text_area :description, :label => "Description" %>
+</p>
+<p>
+  <%= submit "Update", :class => "button" %>
+</p>
+</fieldset>
+<% end =%>

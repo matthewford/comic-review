@@ -2,12 +2,20 @@ class Comics < Application
   # provides :xml, :yaml, :js
 
   def index
-    @comics = Comic.all
+    name = params[:name]
+    unless name.blank?
+      @comics = Comic.all :title.like => "%#{name}%"
+      wiki = Wikipedia::Page.new
+      @wikipedia_results = wiki.search(name)
+    else  
+      @comics = Comic.all
+      @wikipedia_results = []
+    end
     display @comics
   end
 
-  def show(id)
-    @comic = Comic.get(id)
+  def show(url)
+    @comic = Comic.first(:url => url)
     raise NotFound unless @comic
     display @comic
   end
@@ -18,15 +26,16 @@ class Comics < Application
     display @comic
   end
 
-  def edit(id)
+  def edit(url)
     only_provides :html
-    @comic = Comic.get(id)
+    @comic = Comic.first(:url => url)
     raise NotFound unless @comic
     display @comic
   end
 
   def create(comic)
     @comic = Comic.new(comic)
+    @comic.wiki_page = true if params[:wiki_page]
     if @comic.save
       redirect resource(@comic), :message => {:notice => "Comic was successfully created"}
     else
@@ -35,8 +44,8 @@ class Comics < Application
     end
   end
 
-  def update(id, comic)
-    @comic = Comic.get(id)
+  def update(url, comic)
+    @comic = Comic.first(:url => url)
     raise NotFound unless @comic
     if @comic.update_attributes(comic)
        redirect resource(@comic)
@@ -45,8 +54,8 @@ class Comics < Application
     end
   end
 
-  def destroy(id)
-    @comic = Comic.get(id)
+  def destroy(url)
+    @comic = Comic.first(:url => url)
     raise NotFound unless @comic
     if @comic.destroy
       redirect resource(:comics)

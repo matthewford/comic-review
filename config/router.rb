@@ -28,7 +28,7 @@
 Merb.logger.info("Compiling routes...")
 Merb::Router.prepare do
   
-  resources :comics, :identify => :title
+  resources :comics, :identify => :url
   resources :users, :identify => :username
   
   match("/signup").to(:controller => "Users", :action => "new").name(:signup)

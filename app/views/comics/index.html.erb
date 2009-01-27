@@ -1,4 +1,23 @@
-<h1>Comics controller, index action</h1>
+<h1>Search Results</h1>
+<ul>
+<% @comics.each do |c| %>
+  <li><%=link_to c.title, resource(c) %></li>
+<% end %>
+</ul>
 
-<p>Edit this file in <tt>app/views/comics/index.html.erb</tt></p>
-<p>For more information and examples of CRUD views read <a href="http://wiki.merbivore.com/howto/crud_view_example_with_merb_using_erb"> this wiki page</a>
+<% unless @wikipedia_results.empty? %>
+  <h2>Wikipedia Results</h2>
+  <ul>
+    <% @wikipedia_results.each do |r| %>
+      <li>
+        <%= form_for Comic.new, :action => resource(:comics) do %>
+          <%= hidden_field :name => :wiki_page, :value => true %>
+          <%= hidden_field :url, :value => pretty_url(r) %>
+          <%= hidden_field :title, :value => r %>
+          <%= submit "create profile for '#{r}'" %>
+        <% end =%>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+

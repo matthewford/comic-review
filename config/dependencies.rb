@@ -28,5 +28,6 @@ dependency "dm-serializer", dm_gems_version
 
 dependency "merb_datamapper", merb_gems_version
 
-# Other
+# other gems & github.com gems
 dependency "jnunemaker-httparty", :require_as => "httparty"
+dependency "rdiscount"
