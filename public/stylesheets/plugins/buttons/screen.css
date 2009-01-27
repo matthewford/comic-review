@@ -1,3 +1,5 @@
+/* @override http://0.0.0.0:4000/stylesheets/plugins/buttons/screen.css */
+
 /* -------------------------------------------------------------- 
   
    buttons.css
@@ -10,11 +12,11 @@
 
 -------------------------------------------------------------- */
 
-a.button, button {
+a.button, .button {
   display:block;
   float:left;
   margin: 0.7em 0.5em 0.7em 0;
-  padding:5px 10px 5px 7px;   /* Links */
+  padding:5px 10px 5px 7px;    Links 
   
   border:1px solid #dedede;
   border-top:1px solid #eee;
@@ -29,19 +31,19 @@ a.button, button {
   color:#565656;
   cursor:pointer;
 }
-button {
+input {
   width:auto;
   overflow:visible;
   padding:4px 10px 3px 7px;   /* IE6 */
 }
-button[type] {
+input[type] {
   padding:4px 10px 4px 7px;   /* Firefox */
   line-height:17px;           /* Safari */
 }
-*:first-child+html button[type] {
+*:first-child+html input[type] {
   padding:4px 10px 3px 7px;   /* IE7 */
 }
-button img, a.button img{
+.button img, a.button img{
   margin:0 3px -3px 0 !important;
   padding:0;
   border:none;
@@ -55,7 +57,7 @@ button img, a.button img{
 -------------------------------------------------------------- */
 
 /* Standard */
-button:hover, a.button:hover{
+.button:hover, a.button:hover{
   background-color:#dff4ff;
   border:1px solid #c2e1ef;
   color:#336699;
@@ -70,7 +72,7 @@ a.button:active{
 body .positive {
   color:#529214;
 }
-a.positive:hover, button.positive:hover {
+a.positive:hover, .button.positive:hover {
   background-color:#E6EFC2;
   border:1px solid #C6D880;
   color:#529214;
@@ -85,7 +87,7 @@ a.positive:active {
 body .negative {
   color:#d12f19;
 }
-a.negative:hover, button.negative:hover {
+a.negative:hover, .button.negative:hover {
   background:#fbe3e4;
   border:1px solid #fbc2c4;
   color:#d12f19;

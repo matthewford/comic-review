@@ -1,12 +1,12 @@
 <%= form_for @user, :action => resource(@user) do %>
 <fieldset>
   <legend>Edit Profile</legend>
-  <p><%= text_field :description, :label => "Description" %></p>
-  <%= submit 'Update' %>
+  <p><%= text_area :description, :label => "Description" %></p>
+  <%= submit 'Update', :class => "button" %>
 </fieldset>
 <% end =%>
 
 <h3>Delete your profile</h3>
 <%= form_for @user, :action => resource(@user), :method => :delete do %>
-  <%= submit "Delete Profile" %>
+  <%= submit "Delete Profile", :class => "button negative" %>
 <% end =%>

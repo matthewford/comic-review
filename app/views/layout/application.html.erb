@@ -5,29 +5,45 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="/stylesheets/screen.css" type="text/css" media="screen, projection">
     <link rel="stylesheet" href="/stylesheets/print.css" type="text/css" media="print">  
-    <link rel="stylesheet" href="/stylesheets/plugins/buttons/screen.css" type="text/css" media="screen, projection">      
+    <link rel="stylesheet" href="/stylesheets/plugins/buttons/screen.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="/stylesheets/plugins/tabs/screen.css" type="text/css" media="screen, projection">      
+          
     <!--[if IE]><link rel="stylesheet" href="/stylesheets/ie.css" type="text/css" media="screen, projection"><![endif]-->
   </head>
   <body>
     <div class="container">
-      <div id="header" class="span-24 last">
+      <div id="header" class="span-18">
         <h1 id="comic_review"><%= link_to "Comic Review", url(:homepage) %></h1>
       </div>
-      <hr />
-      <div id="subheader" class="span-24 last">
-         <% unless message[:success].blank? %>
-           <p class="success"><%= message[:success] %></p>
-         <% end %>
+      
+      <%= form :action => resource(:comics), :method => :get do %>
+        <div class="span-4">
+        <%= text_field :name, :class => "span-4 top-25" %>
+        </div>
+        <div class="span-2 last">
+          <input type="submit" class="button positive top-20" name="submit" value="Search"/>
+        </div>
+      <% end =%>
+      
+       <% unless message[:success].blank? %>
+         <p class="feedback success"><%= message[:success] %></p>
+       <% end %>
 
-         <% unless  message[:notice].blank?  %>
-           <p class="notice"><%= message[:notice] %></p>
-         <% end %>
+       <% unless  message[:notice].blank?  %>
+         <p class="feedback notice"><%= message[:notice] %></p>
+       <% end %>
 
-         <% unless  message[:error].blank?  %>
-           <p class="error"><%= message[:error] %></p>
-         <% end %>
+       <% unless  message[:error].blank?  %>
+         <p class="feedback error"><%= message[:error] %></p>
+       <% end %>
+       
+      <div id="subnav" class="span-24 last">
+        <ul class='tabs'>
+          <li><%= link_to "Home", url(:homepage), :class => tab_selected?(url(:homepage)) %></li>
+          <li><%= link_to "Comics", resource(:comics), :class => tab_selected?(resource(:comics)) %></li>
+        </ul>
       </div>
-      <hr />
+      
       <div class="span-17 colborder" id="content"> 
       <%= catch_content :for_layout %>
       </div>  
@@ -46,5 +62,8 @@
         </div>
       </div>
     </div>
+    
+    <%= js_include_tag 'jquery.js', 'jquery.humanize.js', 'application.js', :bundle => true %>
+    
   </body>
 </html>
