@@ -1,10 +1,8 @@
-<div>
-
-  <%# error_messages_for session.authentication %>
-  <% @login_param = Merb::Authentication::Strategies::Basic::Base.login_param %>
-  <% @password_param = Merb::Authentication::Strategies::Basic::Base.password_param %>
+<%# error_messages_for session.authentication %>
+<% @login_param = Merb::Authentication::Strategies::Basic::Base.login_param %>
+<% @password_param = Merb::Authentication::Strategies::Basic::Base.password_param %>
   
-	<form action="<%= slice_url(:merb_auth_slice_password, :perform_login) %>" method="POST" accept-charset="utf-8">
+<form action="<%= slice_url(:merb_auth_slice_password, :perform_login) %>" method="POST" accept-charset="utf-8">
 	<fieldset>
     <legend>Login</legend>
 	  <input type="hidden" name="_method" value="PUT" />
@@ -18,8 +16,8 @@
 	    <input class="button" type="submit" name="Submit" value="Log In" id="Submit">
 	  </p>
 	</fieldset>
-	</form>
-</div>
+</form>
+
 
     
   

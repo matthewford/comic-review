@@ -31,16 +31,16 @@ a.button, .button {
   color:#565656;
   cursor:pointer;
 }
-input {
+.button {
   width:auto;
   overflow:visible;
   padding:4px 10px 3px 7px;   /* IE6 */
 }
-input[type] {
+.button[type] {
   padding:4px 10px 4px 7px;   /* Firefox */
   line-height:17px;           /* Safari */
 }
-*:first-child+html input[type] {
+*:first-child+html .button[type] {
   padding:4px 10px 3px 7px;   /* IE7 */
 }
 .button img, a.button img{

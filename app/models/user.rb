@@ -10,6 +10,8 @@
 # You will need to setup your database and create a user.
 class User
   include DataMapper::Resource
+  include PrettyUrl
+  
 
   property :id,     Serial
 	property :username,  String
