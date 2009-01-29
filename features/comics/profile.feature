@@ -4,19 +4,18 @@ Feature: comics/profile
   Should be able to search for them
 
   Scenario: Creating a comic from wikipedia
-    Given the comic 'XKCD' is not the database
-    And Matt has already signed up
+    Given there is no comic "XKCD"
     And I login as Matt
-    When I go to /comics?name=xkcd
+    When I search comics for "xkcd"
     Then I should see "Wikipedia Results"
     And I should see "create profile for 'XKCD'"
     When I press "create profile for 'XKCD'"
     Then I should see "XKCD"
     
   Scenario: Searching a comic that does exist
-    Given the comic 'XKCD' is in the database
+    Given a comic named "XKCD"
     And I login as Matt
-    When I go to /comics?name=xkcd
+    When I search comics for "xkcd"
     Then I should see "Search Results"
     And I should see "XKCD"
     When I follow "XKCD"

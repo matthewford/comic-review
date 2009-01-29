@@ -13,6 +13,8 @@ class Comic
   before :save, :generate_url
   before :save, :parse_markdown
   
+  has n, :comments
+  
   def populate_description
     if wiki_page
       w = Wikipedia::Page.new

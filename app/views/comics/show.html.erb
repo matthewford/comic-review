@@ -1,3 +1,22 @@
 <h1><%= @comic.title %></h1>
 
 <%= @comic.description %>
+
+
+<h2>Comments</h2>
+<%= partial "comments/listing", :comments => @comments %>
+
+<%= form_for :comment, :action => resource(@comic, :comments)  do %>
+<fieldset>
+  <legend>Add Your Comment</legend>
+<p>
+  <%= text_area :body, :label => "Comment" %>
+</p>
+<p>
+  <%= submit "Create", :class => "button" %>
+</p>
+</fieldset>
+<% end =%>
+
+
+

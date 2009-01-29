@@ -12,10 +12,11 @@ class User
   include DataMapper::Resource
   include PrettyUrl
   
-
   property :id,     Serial
 	property :username,  String
 	property :email,  String
 	property :description, Text
+
+  has n, :comments
 
 end

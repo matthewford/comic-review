@@ -1,0 +1,9 @@
+<% comments.each do |c| %>
+  <%= link_to gravatar_for(c.user), resource(c.user) %>
+  <%= c.body_html %>
+  
+  <% if session.user == c.user %>
+    <%= link_to "edit", resource(@comic, c, :edit), :class => "right" %> 
+  <% end %>
+<hr />
+<% end %>

@@ -27,7 +27,7 @@
     container : '<p class="feedback">&nbsp;</p>',
     fadeIn : {easing:'swing', duration:1500},
     fadeOut : {easing:'swing', duration:1000,complete:function(){$(this).remove()}},
-    opacity : 0.7,
+    opacity : 0.9,
     movementThreshold : 3
   };
   $.humanize.mouseCatch = 3;

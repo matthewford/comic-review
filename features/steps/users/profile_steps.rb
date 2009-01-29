@@ -5,6 +5,7 @@ Given 'Matt has already signed up' do
 end
 
 Given 'I login as Matt' do
+  When %{Matt has already signed up}
 	When %{I go to /login}
 	Then %{I fill in "Email" with "matt@test.com"} 
 	And %{I fill in "Password" with "justt3sting"}

@@ -17,6 +17,7 @@ class Comics < Application
   def show(url)
     @comic = Comic.first(:url => url)
     raise NotFound unless @comic
+    @comments = @comic.comments
     display @comic
   end
 
