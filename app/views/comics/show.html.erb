@@ -6,9 +6,18 @@
 <h2>Comments</h2>
 <%= partial "comments/listing", :comments => @comments %>
 
-<%= form_for :comment, :action => resource(@comic, :comments)  do %>
+<%= form_for @comment, :action => resource(@comic, :comments)  do %>
 <fieldset>
   <legend>Add Your Comment</legend>
+<fieldset>
+  <legend>Rating</legend>
+  <input type="radio" class="star" name="rating" value="1" id="rating1"/>
+  <input type="radio" class="star" name="rating" value="2" id="rating2"/>
+  <input type="radio" class="star" name="rating" value="3" id="rating3"/>
+  <input type="radio" class="star" name="rating" value="4" id="rating4"/>
+  <input type="radio" class="star" name="rating" value="5" id="rating5"/>
+  <br />    
+</fieldset>
 <p>
   <%= text_area :body, :label => "Comment" %>
 </p>

@@ -1,5 +1,6 @@
 <% comments.each do |c| %>
   <%= link_to gravatar_for(c.user), resource(c.user) %>
+  <%= stars(c.rating) %><br />
   <%= c.body_html %>
   
   <% if session.user == c.user %>

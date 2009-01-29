@@ -18,6 +18,7 @@ class Comics < Application
     @comic = Comic.first(:url => url)
     raise NotFound unless @comic
     @comments = @comic.comments
+    @comment = Comment.new
     display @comic
   end
 

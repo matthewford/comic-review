@@ -4,6 +4,7 @@ class Comment
   property :id, Serial
   property :body, Text
   property :body_html, Text
+  property :rating, Integer
 
   before :save, :parse_markdown
   

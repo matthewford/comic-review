@@ -18,3 +18,7 @@ end
 Then /^I should see HTML instead of markdown/ do
   response.should have_xpath("//em") 
 end
+
+Then /^I should see some stars/ do
+  response.should match_selector(".star_on")
+end

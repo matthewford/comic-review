@@ -12,10 +12,11 @@ class Comments < Application
   def create(comment)
     @comment = @comic.comments.build(comment)
     @comment.user = session.user
+    @comment.rating = params[:rating]
     if @comment.save
       redirect resource(@comic), :message => {:success => "Comment was successfully created"}
     else
-      redirect resource(@comic), :message => {:success => "Comment failed to be created"}
+      redirect resource(@comic), :message => {:error => "Comment failed to be created"}
     end
   end
 
@@ -23,7 +24,7 @@ class Comments < Application
     @comment = Comment.get(id)
     raise NotFound unless @comment
     if @comment.update_attributes(comment)
-       redirect resource(@comic)
+       redirect resource(@comic), :message => {:success => "Comment was successfully edited"}
     else
       display @comment, :edit
     end
