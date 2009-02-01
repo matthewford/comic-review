@@ -3,20 +3,25 @@
 <% @password_param = Merb::Authentication::Strategies::Basic::Base.password_param %>
   
 <form action="<%= slice_url(:merb_auth_slice_password, :perform_login) %>" method="POST" accept-charset="utf-8">
-	<fieldset>
+  <fieldset>
     <legend>Login</legend>
-	  <input type="hidden" name="_method" value="PUT" />
-	  <p>
-	    <label for="<%= @login_param.to_s %>"><%= @login_param.to_s.capitalize %></label><input type="text" name="<%= @login_param.to_s %>" value="" id="<%= @login_param.to_s %>">
-	  </p>
-	  <p>
-	    <label for="<%= @password_param.to_s %>"><%= @password_param.to_s.capitalize %></label><input type="password" name="<%= @password_param.to_s %>" value="" id="<%= @password_param.to_s %>">
-	  </p>
+    <input type="hidden" name="_method" value="PUT" />
     <p>
-	    <input class="button" type="submit" name="Submit" value="Log In" id="Submit">
-	  </p>
-	</fieldset>
+      <label for="<%= @login_param.to_s %>"><%= @login_param.to_s.capitalize %></label><input type="text" name="<%= @login_param.to_s %>" value="" id="<%= @login_param.to_s %>">
+    </p>
+    <p>
+      <label for="<%= @password_param.to_s %>"><%= @password_param.to_s.capitalize %></label><input type="password" name="<%= @password_param.to_s %>" value="" id="<%= @password_param.to_s %>">
+    </p>
+    <p>
+      <input class="button" type="submit" name="Submit" value="Log In" id="Submit">
+    </p>
+  </fieldset>
 </form>
+
+
+    
+  
+
 
 
     
