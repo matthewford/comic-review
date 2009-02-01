@@ -3,9 +3,11 @@ class Comic
   include PrettyUrl
   
   property :id, Serial
-  property :title, String
-  property :url, String
+  property :title, String, :nullable => false
+  property :url, String, :nullable => false
   property :description, Text
+  
+  validates_is_unique :url, :title
   
   attr_accessor :wiki_page, :new_tag
   

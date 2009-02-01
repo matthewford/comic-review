@@ -13,10 +13,12 @@ class User
   include PrettyUrl
   
   property :id,     Serial
-	property :username,  String
-	property :email,  String
-	property :description, Text
-
+  property :username,  String, :nullable => false
+  property :email,  String, :nullable => false,  :format => :email_address
+  property :description, Text
+  
+  validates_is_unique :username, :email
+  
   has n, :comments
 
 end
