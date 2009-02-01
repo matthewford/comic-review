@@ -2,7 +2,6 @@
 
 <%= @comic.description %>
 
-
 <h2>Comments</h2>
 <%= partial "comments/listing", :comments => @comments %>
 
@@ -26,6 +25,16 @@
 </p>
 </fieldset>
 <% end =%>
+
+<% throw_content :for_sidebar do %>
+  <h2>Tags</h2>
+  <%= tag_links_for @comic %>
+
+  <%= form_for @comic, :action => resource(@comic) do %>
+  <%= text_field :new_tag, :class => "span-4" %>
+  <%= submit "Add Tag", :class => "button inline" %>
+  <% end =%>
+<% end %>
 
 
 

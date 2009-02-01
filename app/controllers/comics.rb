@@ -3,10 +3,14 @@ class Comics < Application
 
   def index
     name = params[:name]
-    unless name.blank?
+    tag = params[:tag]
+    if name && !name.blank?
       @comics = Comic.all :title.like => "%#{name}%"
       wiki = Wikipedia::Page.new
       @wikipedia_results = wiki.search(name)
+    elsif tag
+      @comics = Comic.tagged_with(tag)
+      @wikipedia_results = []
     else  
       @comics = Comic.all
       @wikipedia_results = []
@@ -49,6 +53,7 @@ class Comics < Application
   def update(url, comic)
     @comic = Comic.first(:url => url)
     raise NotFound unless @comic
+    @comic.add_tag(comic[:new_tag]) if comic[:new_tag]
     if @comic.update_attributes(comic)
        redirect resource(@comic)
     else

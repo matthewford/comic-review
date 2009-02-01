@@ -7,13 +7,15 @@ class Comic
   property :url, String
   property :description, Text
   
-  attr_accessor :wiki_page
+  attr_accessor :wiki_page, :new_tag
   
   before :save, :populate_description
   before :save, :generate_url
   before :save, :parse_markdown
   
   has n, :comments
+  
+  has_tags_on :tags
   
   def populate_description
     if wiki_page

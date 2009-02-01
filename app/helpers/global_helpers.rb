@@ -17,5 +17,12 @@ module Merb
       end
     end
     
+    def tag_links_for(comic)
+      tags = comic.tags.collect do |t|
+        link_to t.name, url(:comics, :tag => t.name)  
+      end
+      tags.join(', ')
+    end
+    
   end
 end

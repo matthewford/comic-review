@@ -22,3 +22,13 @@ end
 Then /^I should see some stars/ do
   response.should match_selector(".star_on")
 end
+
+Given /^the comic "(.*)" is tagged with "(.*)"$/ do |comic, tag|
+  c = Comic.first(:title => comic)
+  c.add_tag(tag)
+  c.save
+end
+
+When /^I search comics by the tag "(.*)"/ do |t|
+  When %{I go to /comics?tag=#{t}}
+end
