@@ -4,10 +4,12 @@ Given /^there is no comic "(.*)"$/ do |c|
 end
 
 Given /^a comic named "(.*)"$/ do |c|
+  Given %{there is no comic "#{c}"}
   Comic.create({:title => c, :description => "This the comic #{c}" })
 end
 
 When /^I view the "(.*)" comic page$/ do |c|
+  Given %{a comic named "#{c}"}
   When %{I go to /comics/#{c}}
 end
 
