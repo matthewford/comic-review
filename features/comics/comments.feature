@@ -3,7 +3,6 @@ Feature: comics/comments
   A User can comment a comic
 
   Scenario: Creating a comment
-    Given a comic named "XKCD"
     And I login as Matt
     When I view the "xkcd" comic page
     Then I should see "Add Your Comment"
@@ -13,7 +12,6 @@ Feature: comics/comments
     And I should see "This Rocks!"
 
   Scenario: Editing a comment
-    Given a comic named "XKCD"
     And I login as Matt
     When I view the "xkcd" comic page
     Then I should see "Add Your Comment"

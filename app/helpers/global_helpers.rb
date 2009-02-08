@@ -17,6 +17,12 @@ module Merb
       end
     end
     
+    def display_star_rating(star_no)
+      inputs = (1..20).collect do |i|
+        %(<input class="star {split:4}" type="radio" name="total-rating" value="#{i}" disabled="disabled" #{"checked='checked'" if i == star_no} />)
+      end
+    end
+    
     def tag_links_for(comic)
       tags = comic.tags.collect do |t|
         link_to t.name, url(:comics, :tag => t.name)  

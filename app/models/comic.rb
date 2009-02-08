@@ -4,7 +4,7 @@ class Comic
   
   property :id, Serial
   property :title, String, :nullable => false
-  property :url, String, :nullable => false
+  property :url, String
   property :description, Text
   
   validates_is_unique :url, :title
@@ -33,5 +33,10 @@ class Comic
   
   def parse_markdown
     self.description = RDiscount.new(self.description).to_html
+  end
+  
+  #for split stars
+  def calculate_total_rating
+    (self.comments.avg(:rating) * 4).round
   end  
 end
