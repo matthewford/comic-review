@@ -4,6 +4,8 @@
 
 <%= @comic.description %>
 
+<%= image_tag @comic.image_url unless @comic.image_url.blank? %>
+
 <h2>Comments</h2>
 <%= partial "comments/listing", :comments => @comments %>
 

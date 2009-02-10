@@ -29,7 +29,9 @@ Merb.logger.info("Compiling routes...")
 Merb::Router.prepare do
 
   resources :comics, :identify => :url do
-    resources :comments
+    authenticate do
+      resources :comments
+    end
   end
   
   resources :users, :identify => :username

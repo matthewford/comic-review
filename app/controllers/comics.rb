@@ -1,5 +1,7 @@
 class Comics < Application
   # provides :xml, :yaml, :js
+  
+  before :ensure_authenticated, :exclude => [:index, :show]
 
   def index
     name = params[:name]

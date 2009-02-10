@@ -5,7 +5,7 @@ Feature: comics/profile
 
   Scenario: Creating a comic from wikipedia
     Given there is no comic "XKCD"
-    And I login as Matt
+    Given I login as Matt
     When I search comics for "xkcd"
     Then I should see "Wikipedia Results"
     And I should see "create profile for 'XKCD'"
@@ -22,7 +22,7 @@ Feature: comics/profile
     Then I should see "XKCD"
     
   Scenario: Manually creating a comic
-    And I login as Matt
+    Given I login as Matt
     When I go to /comics/new
     Then I should see "Comic Profile"
     When I fill in "Title" with "Manual Test Comic"

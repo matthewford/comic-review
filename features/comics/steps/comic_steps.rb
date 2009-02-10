@@ -18,11 +18,11 @@ When /^I search comics for "(.*)"$/ do |c|
 end
 
 Then /^I should see HTML instead of markdown/ do
-  response.should have_xpath("//em") 
+  @response.should have_xpath("//em") 
 end
 
 Then /^I should see some stars/ do
-  response.should match_selector(".star_on")
+  @response.should match_selector(".star_on")
 end
 
 Given /^the comic "(.*)" is tagged with "(.*)"$/ do |comic, tag|

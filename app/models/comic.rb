@@ -6,6 +6,7 @@ class Comic
   property :title, String, :nullable => false
   property :url, String
   property :description, Text
+  property :image_url, Text
   
   validates_is_unique :url, :title
   
@@ -21,6 +22,7 @@ class Comic
   
   def populate_description
     if wiki_page
+      #description
       w = Wikipedia::Page.new
       p1, p2 = w.scrape(self.title)
       self.description = %(<p>#{p1}</p><p>#{p2}</p>)
