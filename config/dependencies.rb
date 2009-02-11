@@ -33,3 +33,5 @@ dependency "merb_datamapper", merb_gems_version
 dependency "jnunemaker-httparty", :require_as => "httparty"
 dependency "nokogiri"
 dependency "rdiscount"
+dependency "metaid"
+dependency "nakajima-roleful", :require_as => "roleful"

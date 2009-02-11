@@ -10,15 +10,20 @@
 # You will need to setup your database and create a user.
 class User
   include DataMapper::Resource
-  include PrettyUrl
+  include Roleful
   
-  property :id,     Serial
-  property :username,  String, :nullable => false
-  property :email,  String, :nullable => false,  :format => :email_address
-  property :description, Text
+  property :id,           Serial
+  property :username,     String, :nullable => false
+  property :email,        String, :nullable => false,  :format => :email_address
+  property :description,  Text
+  property :role,         String, :writer => :private 
   
   validates_is_unique :username, :email
   
   has n, :comments
+  
+  def set_role(role)
+    attribute_set(:role, role)
+  end
 
 end
