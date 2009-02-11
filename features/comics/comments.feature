@@ -26,3 +26,9 @@ Feature: comics/comments
     Then I should see a success message
     And I should see "This <em>really</em> Rocks!"
     
+  Scenario: Adding a comment when not logged in
+    When I view the "xkcd" comic page
+    Then I should see "Add Your Comment"
+    When I fill in "Comment" with "This Rocks!"
+    And I press "Create"
+    And I should see an error message    

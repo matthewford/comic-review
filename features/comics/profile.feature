@@ -31,6 +31,9 @@ Feature: comics/profile
     Then I should see "Manual Test Comic"
     And I should see HTML instead of markdown
 
+  Scenario: Trying to add a comic when not logged in
+    When I go to /comics/new
+    And I should see an error message    
   
   
   
