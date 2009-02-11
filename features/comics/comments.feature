@@ -31,4 +31,4 @@ Feature: comics/comments
     Then I should see "Add Your Comment"
     When I fill in "Comment" with "This Rocks!"
     And I press "Create"
-    And I should see an error message    
+    Then I should see "Login"

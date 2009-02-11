@@ -33,7 +33,7 @@ Feature: comics/profile
 
   Scenario: Trying to add a comic when not logged in
     When I go to /comics/new
-    And I should see an error message    
+    Then I should see "Login"
   
   
   

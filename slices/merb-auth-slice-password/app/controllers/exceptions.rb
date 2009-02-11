@@ -5,9 +5,7 @@ module MerbAuthSlicePassword::ExceptionsMixin
 
     case content_type
     when :html
-      if error_messages_for(session.authentication).blank?
-        message[:error] = "Please login first"
-      else
+      unless error_messages_for(session.authentication).blank?
         message[:error] = "Woops, we couldn't find that email address or password"
       end
       render
